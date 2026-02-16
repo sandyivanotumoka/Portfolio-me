@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { profile } from "../data/profile";
 import { FaGithub } from "react-icons/fa";
 import { socials } from "../data/socials";
+import Scene3D from "../components/Scene3D";
 
 function Hero() {
   return (
@@ -19,83 +20,88 @@ function Hero() {
       </div>
 
       <Container>
-        <div className="max-w-2xl">
-          {/* NAME */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl md:text-6xl
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-2xl">
+            {/* NAME */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl sm:text-5xl md:text-6xl
  font-bold leading-tight text-[var(--text-main)]"
-          >
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-sky-500 via-violet-500 to-pink-500 bg-clip-text text-transparent">
-              {profile.name}
-            </span>
-          </motion.h1>
+            >
+              Hi, I'm{" "}
+              <span className="bg-gradient-to-r from-sky-500 via-violet-500 to-pink-500 bg-clip-text text-transparent">
+                {profile.name}
+              </span>
+            </motion.h1>
 
-          {/* ROLE */}
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mt-5 text-xl md:text-2xl text-[var(--text-muted)]"
-          >
-            {profile.role}
-          </motion.h2>
+            {/* ROLE */}
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="mt-5 text-xl md:text-2xl text-[var(--text-muted)]"
+            >
+              {profile.role}
+            </motion.h2>
 
-          {/* DESCRIPTION */}
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-6 text-[var(--text-muted)] leading-relaxed"
-          >
-            {profile.description}
-          </motion.p>
+            {/* DESCRIPTION */}
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mt-6 text-[var(--text-muted)] leading-relaxed"
+            >
+              {profile.description}
+            </motion.p>
 
-          {/* BUTTONS */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4
+            {/* BUTTONS */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="mt-10 flex flex-col sm:flex-row gap-4
 "
-          >
-            {/* GITHUB */}
-            <a
-              href={socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border
+            >
+              {/* GITHUB */}
+              <a
+                href={socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl border
               border-[var(--border-soft)]
               hover:bg-[var(--bg-soft)]
               transition"
-            >
-              <FaGithub className="text-lg" />
-              Github
-            </a>
+              >
+                <FaGithub className="text-lg" />
+                Github
+              </a>
 
-            {/* CONTACT */}
-            <button
-              className="px-6 py-3 rounded-xl font-medium text-white
+              {/* CONTACT */}
+              <button
+                className="px-6 py-3 rounded-xl font-medium text-white
               bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500
               hover:scale-105 active:scale-95 transition
               dark:shadow-[0_0_30px_rgba(168,85,247,0.35)]"
-            >
-              Contact Me
-            </button>
+              >
+                Contact Me
+              </button>
 
-            {/* PROJECTS */}
-            <button
-              className="px-6 py-3 rounded-xl border
+              {/* PROJECTS */}
+              <button
+                className="px-6 py-3 rounded-xl border
               border-[var(--border-soft)]
               hover:bg-[var(--bg-soft)]
               transition"
-            >
-              View Projects
-            </button>
-          </motion.div>
+              >
+                View Projects
+              </button>
+            </motion.div>
+          </div>
+          <div className="order-first md:order-none mb-10 md:mb-0">
+            <Scene3D />
+          </div>
         </div>
       </Container>
     </section>
