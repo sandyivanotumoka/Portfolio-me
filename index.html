@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/svg+xml" href="/Portfolio-me/vite.svg" />
+
+    <script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+
+        // fallback ke system kalau belum ada
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const theme = stored ? stored : systemDark ? "dark" : "light";
+
+        const root = document.documentElement;
+
+        // matikan transition sementara (anti kedip)
+        root.classList.add("no-transition");
+
+        if (theme === "dark") root.classList.add("dark");
+        else root.classList.remove("dark");
+
+        // hidupkan lagi setelah render
+        window.addEventListener("DOMContentLoaded", () => {
+          root.classList.remove("no-transition");
+        });
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portfolio-2</title>
+    <script type="module" crossorigin src="/Portfolio-me/assets/index-BBpNc1Uq.js"></script>
+    <link rel="stylesheet" crossorigin href="/Portfolio-me/assets/index-C4XtUTMs.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
