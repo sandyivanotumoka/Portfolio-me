@@ -101,7 +101,7 @@ function Navbar() {
             {/* HAMBURGER */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden text-2xl p-2"
+              className="md:hidden text-2xl p-2 text-neutral-800 dark:text-white"
             >
               {open ? <HiXMark /> : <HiBars3 />}
             </button>
@@ -111,9 +111,14 @@ function Navbar() {
         {/* MOBILE MENU */}
         {open && (
           <div className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm surface p-6 md:hidden z-40">
-            <ul className="flex flex-col gap-6 text-lg text-center">
+            <ul className="flex flex-col gap-6 text-lg text-center text-neutral-800 dark:text-neutral-200">
               {["home", "about", "projects", "contact"].map((id) => (
-                <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  onClick={() => setOpen(false)}
+                  className="transition hover:text-black dark:hover:text-white"
+                >
                   {id.charAt(0).toUpperCase() + id.slice(1)}
                 </a>
               ))}

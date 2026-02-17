@@ -37,6 +37,7 @@ function Contact() {
   return (
     <section
       id="contact"
+      data-animate
       className="min-h-screen py-32 border-t border-[var(--border-soft)] flex items-center bg-[var(--bg-soft)] transition-colors duration-300"
     >
       <Container>

@@ -4,6 +4,7 @@ function About() {
   return (
     <section
       id="about"
+      data-animate
       className="min-h-screen py-32 border-t border-neutral-900 flex items-center"
     >
       <Container>

@@ -1,11 +1,31 @@
 @import "tailwindcss";
 @source "../**/*.{ts,tsx}";
 @source "../src/**/*";
-
 @custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  height: 100%;
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-white;
+}
+
+/* Light mode */
+body {
+  @apply bg-white text-neutral-900;
+}
+
+/* Dark mode gradient */
+.dark body {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: #e5e7eb;
 }
 
 :root {
@@ -17,9 +37,19 @@ html {
   --text: #e5e7eb;
 }
 
-body {
-  background: radial-gradient(circle at top, #1e293b, #020617);
-  color: var(--text);
+:root {
+  --name-from: #0284c7;
+  --name-via: #4f46e5;
+  --name-to: #c026d3;
+  --name-glow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.dark {
+  --name-from: #38bdf8;
+  --name-via: #8b5cf6;
+  --name-to: #f472b6;
+  --name-glow:
+    0 0 12px rgba(139, 92, 246, 0.35), 0 0 28px rgba(236, 72, 153, 0.25);
 }
 
 /* ===== PREMIUM SURFACE ===== */
@@ -48,4 +78,22 @@ body {
 .no-transition *::before,
 .no-transition *::after {
   transition: none !important;
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+.animate-scrollLine {
+  animation: scrollLine 1.6s ease-in-out infinite;
 }
